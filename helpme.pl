@@ -1,7 +1,20 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env bash
+
+echo "Which program do you need help with? "
+read program
+echo "Run this command: 'man $program' (without quotes)"
+if [ -e `which $program` ]; then
+    echo "Like this. That wasn't so hard was it?"
+   $(which man) $program
+fi
+
+exit
+
+#!/usr/bin/env perl
 
 use feature qw(say);
 use strict;
+use warnings;
 
 my $os = $^O;
 
